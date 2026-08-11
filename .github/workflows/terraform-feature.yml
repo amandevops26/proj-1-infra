@@ -1,3 +1,4 @@
+```yaml
 name: Terraform Feature Plan
 
 on:
@@ -7,6 +8,11 @@ on:
   pull_request:
     branches:
       - main
+
+# Required for Azure OIDC authentication
+permissions:
+  id-token: write
+  contents: read
 
 jobs:
   terraform:
@@ -39,3 +45,4 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -var-file="terraform.tfvars"
+```
